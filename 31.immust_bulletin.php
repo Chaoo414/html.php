@@ -282,20 +282,20 @@
             <?php   PHP代碼區塊   這是一個<div>元素，具有類名"bulletin"，用於定義佈告欄區域
                 $conn=mysqli_connect("db4free.net", "immust", "immustimmust", "immust");
                 $result=mysqli_query($conn, "select * from bulletin");
-                echo "<table border=2><tr><th>佈告編號</th><th>佈告類別</th><th>標題</th><th>佈告內容</th><th>發佈時間</th></tr>";
-                while ($row=mysqli_fetch_array($result)){
-                    echo "<tr><td>";
-                    echo $row["bid"];
+                echo "<table border=2><tr><th>佈告編號</th><th>佈告類別</th><th>標題</th><th>佈告內容</th><th>發佈時間</th></tr>";  
+                while ($row=mysqli_fetch_array($result)){   while循環，用於遍歷從數據庫中檢索到的結果集
+                    echo "<tr><td>";   這是在每個循環迭代中開始一個新的HTML表格行和第一個單元格
+                    echo $row["bid"];   這一行將從數據庫中檢索到的佈告編號輸出到表格單元格中
                     echo "</td><td>";
-                    if ($row["type"]==1) echo "系上公告";  
-                    if ($row["type"]==2) echo "獲獎資訊"; 
-                    if ($row["type"]==3) echo "徵才資訊"; 
-                    echo "</td><td>"; 
-                    echo $row["title"];
+                    if ($row["type"]==1) echo "系上公告";       根據從數據庫檢索到的佈告類型，輸出相應的文字到表格中  1表示系上公告
+                    if ($row["type"]==2) echo "獲獎資訊";  根據從數據庫檢索到的佈告類型，輸出相應的文字到表格中   2表示獲獎資訊
+                    if ($row["type"]==3) echo "徵才資訊";  根據從數據庫檢索到的佈告類型，輸出相應的文字到表格中   3表示徵才資訊
+                    echo "</td><td>";   
+                    echo $row["title"];   這將佈告的標題輸出到表格中的相應單元格
                     echo "</td><td>";
-                    echo $row["content"]; 
+                    echo $row["content"];   這一行將佈告的內容輸出到表格中的相應單元格
                     echo "</td><td>";
-                    echo $row["time"];
+                    echo $row["time"];    : 最後，這將佈告的發佈時間輸出到表格中的相應單元格
                     echo "</td></tr>";
                 }
                 echo "</table>";
@@ -341,7 +341,7 @@
                     </div>
                 </div>
         </div>
-        <div class="footer">
+        <div class="footer">    位於網頁的底部，用於顯示版權信息和網站維護者的姓名
             &copy;Copyright 2022 Department of Information Management, MUST. All rights reserved. 維護者 Tony SHHuang
         </div>
      </body>
